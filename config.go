@@ -94,6 +94,15 @@ func LoadConfigurationFromFile(file string, output interface{}) error {
 		return err
 	}
 
+	err := LoadConfigurationFromBytes(bytes, output)
+	if err != nil {
+		return err
+	}
+
+	return err
+}
+
+func LoadConfigurationFromBytes(bytes []byte, output interface{}) error {
 	err = json.Unmarshal(bytes, output)
 	if err != nil {
 		return err
